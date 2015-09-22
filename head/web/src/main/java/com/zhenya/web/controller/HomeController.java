@@ -1,5 +1,6 @@
 package com.zhenya.web.controller;
 
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -7,7 +8,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
+import java.util.Properties;
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,7 @@ import com.zhenya.model.db.entity.Employee;
 /**
  * Handles requests for the application home page.
  */
+
 @Controller(value = "HomeController")
 public class HomeController {
 
@@ -40,30 +44,46 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate);
 		return "home";
 	}
-
+	
+	
+	@Resource(name="myProperties")
+	 private Properties myProperties;
+    
+	 String URL1, URL2, URL3, URL4, URL5, URL6, URL7, URL8;
+	
+	@PostConstruct
+	  public void init() {
+         URL1 = myProperties.getProperty("my.URL1");
+         URL2 = myProperties.getProperty("my.URL2");
+         URL3 = myProperties.getProperty("my.URL3");
+         URL4 = myProperties.getProperty("my.URL4");
+         URL5 = myProperties.getProperty("my.URL5");
+         URL6 = myProperties.getProperty("my.URL6");
+         URL7 = myProperties.getProperty("my.URL7");
+         URL8 = myProperties.getProperty("my.URL8");
+	}
+        
+	
 	@Autowired
 	RestTemplate restTemplate = new RestTemplate();
 
 	@RequestMapping("/department")
 	ModelAndView listDepartments() {
-		String url = "http://localhost:8080/rest/departments";
-		List<LinkedHashMap> departments = restTemplate.getForObject(url, List.class);
+		List<LinkedHashMap> departments = restTemplate.getForObject(URL1, List.class);
 		return new ModelAndView("department", "departments", departments);
 
 	}
 
 	@RequestMapping("/employee")
 	ModelAndView listEmployees() {
-		String url = "http://localhost:8080/rest/employees";
-		List<LinkedHashMap> employees = restTemplate.getForObject(url, List.class);
+		List<LinkedHashMap> employees = restTemplate.getForObject(URL2, List.class);
 		return new ModelAndView("employee", "employees", employees);
 
 	}
 	
 	@RequestMapping("/avgSalary")
 	ModelAndView listAvg() {
-		String url = "http://localhost:8080/rest/avgSalary";
-		List<LinkedHashMap> avgSalary = restTemplate.getForObject(url, List.class);
+		List<LinkedHashMap> avgSalary = restTemplate.getForObject(URL3, List.class);
 		return new ModelAndView("avgSalary", "avgSalary", avgSalary);
 
 	}
@@ -79,42 +99,34 @@ public class HomeController {
 		employee.setPatronymic(patronymic);
 		employee.setBirth(birth);
 		employee.setSalary(salary);
-		RestTemplate restTemplate = new RestTemplate();
-		String uri = "http://localhost:8080/rest/employees/post";
-		Employee employees = restTemplate.postForObject( uri, employee, Employee.class);
-		
+		Employee employees = restTemplate.postForObject(URL4, employee, Employee.class);
 		return employees;
 	}
 	
 	@RequestMapping(value = "/employee/delete/{id}")
 	@ResponseBody
-	private   void deleteEmployee(@PathVariable Integer id) {
+	private void deleteEmployee(@PathVariable Integer id) {
 	    Map<String, Integer> params = new HashMap<String, Integer>();
 	    params.put("id", id);
-	    final String uri = "http://localhost:8080/rest/employees/delete/{id}";
-	    restTemplate.delete (uri,  params );
+	    restTemplate.delete (URL5,  params );
 	   
 	}
 	 
-	
 	@RequestMapping("/searchBirth")
 	@ResponseBody
 	 ModelAndView searchBirth(@RequestParam("birth") String birth, Model model) {
 		model.addAttribute("birth",birth);
-		final String url = "http://localhost:8080/rest/employees/findOfBirth/{birt}";
-		List<LinkedHashMap> search = restTemplate.getForObject(url, List.class, birth);
+		List<LinkedHashMap> search = restTemplate.getForObject(URL6, List.class, birth);
 		return new ModelAndView("searchBirth", "search", search);
 	}
 	
 	
 	@RequestMapping(value = "/department/insert/{name}")
 	@ResponseBody
-	public   Department insert(@PathVariable("name") String name) {
+	public Department insert(@PathVariable("name") String name) {
 		Department department = new Department();
 		department.setName(name);
-		RestTemplate restTemplate = new RestTemplate();
-		final String url = "http://localhost:8080/rest/departments/insert";
-		Department departments = restTemplate.postForObject(url, department, Department.class);
+		Department departments = restTemplate.postForObject(URL7, department, Department.class);
 		return departments;
 	
 	}
@@ -124,8 +136,7 @@ public class HomeController {
 	private   void deleteDepartment(@PathVariable Integer id) {
 	    Map<String, Integer> params = new HashMap<String, Integer>();
 	    params.put("id", id);
-	    final String url =  "http://localhost:8080/rest/departments/delete/{id}";
-	    restTemplate.delete(url,  params );
+	    restTemplate.delete(URL8,  params );
 	   
 	}
 
