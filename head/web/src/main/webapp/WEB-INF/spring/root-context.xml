@@ -14,5 +14,11 @@
 			</list>
 		</property>
 	</bean>
-
+	<bean id="myProperties"  class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="locations">
+	    <list>
+	      <value>classpath*:my.properties</value>
+	    </list>
+	  </property>
+	</bean>
 </beans>
