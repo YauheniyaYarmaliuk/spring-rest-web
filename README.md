@@ -10,8 +10,9 @@ It's POJO for rest and web
 ----
 ## rest
 RESTful web service, which output requests in  json formats
-Http methods: GET, PUT, POST, DELETE
-**All URL is used prefix localhost:8080/rest**
+Http methods: GET, PUT, POST, DELETE.
+
+All URL is used prefix **localhost:8080/rest**
 * /employees
 * /departments
 * /avgSalary
@@ -25,7 +26,7 @@ Given that the RestTemplate  is designed to call REST services,
 which are the HTTP protocol’s methods: GET, POST, PUT, DELETE.
 Example it’s methods are  getForObject(), postForObject(), put() and delete() .
 
-**All URL is used prefix localhost:8080/web**
+All URL is used prefix **localhost:8080/web**
 * /employee
 * /department
 * /avgSalary
