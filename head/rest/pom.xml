@@ -7,14 +7,14 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>rest</name>
 	<packaging>war</packaging>
-	
-	
+
+
 	<parent>
 		<groupId>com.zhenya</groupId>
 		<artifactId>head</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>3.2.7.RELEASE</org.springframework-version>
@@ -23,38 +23,38 @@
 		<jackson.version>1.9.10</jackson.version>
 	</properties>
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>org.codehaus.jackson</groupId>-->
-			<!--<artifactId>jackson-mapper-asl</artifactId>-->
-			<!--<version>1.9.1</version>-->
-		<!--</dependency>-->
-		
-   <dependency>
-      <groupId>com.zhenya</groupId>
-      <artifactId>module</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-   
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>2.6.1</version>
-    </dependency>
+		<!--<dependency> -->
+		<!--<groupId>org.codehaus.jackson</groupId> -->
+		<!--<artifactId>jackson-mapper-asl</artifactId> -->
+		<!--<version>1.9.1</version> -->
+		<!--</dependency> -->
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.6.1</version>
-    </dependency>
+		<dependency>
+			<groupId>com.zhenya</groupId>
+			<artifactId>module</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.6.1</version>
-    </dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.6.1</version>
+		</dependency>
 
 
-    <dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.17</version>
@@ -85,35 +85,35 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis-spring</artifactId>
-      <version>1.2.3</version>
-    </dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.3</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>${org.springframework-version}</version>
-    </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>${org.springframework-version}</version>
-    </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${org.springframework-version}</version>
-    </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>1.4.180</version>
-    </dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.180</version>
+		</dependency>
 
 		<!-- AspectJ -->
 		<dependency>
@@ -121,7 +121,7 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
-	
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -199,11 +199,11 @@
 			<scope>test</scope>
 		</dependency>
 
-    <dependency>
-      <groupId>hsqldb</groupId>
-      <artifactId>hsqldb</artifactId>
-      <version>1.8.0.7</version>
-    </dependency>
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.7</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -244,5 +244,5 @@
 		</plugins>
 		<defaultGoal>install</defaultGoal>
 	</build>
-	
+
 </project>
