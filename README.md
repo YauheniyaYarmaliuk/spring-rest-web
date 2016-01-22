@@ -1,6 +1,6 @@
-﻿# Spring MVC
+# spring-rest-web
 ----
-## what's spring-rest-web?
+## what is spring-rest-web?
 It's spring project, where head is parent for three modules:module, rest, web
 
 ----
@@ -37,5 +37,5 @@ All URL is used prefix **localhost:8080/web**
 *$ mvn clean package*
 
 ----
-## thanks!
+## thanks
 
