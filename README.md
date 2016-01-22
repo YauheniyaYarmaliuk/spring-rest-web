@@ -1,4 +1,4 @@
-﻿# Spring-rest-web
+﻿# Spring MVC
 ----
 ## what's spring-rest-web?
 It's spring project, where head is parent for three modules:module, rest, web
